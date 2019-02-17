@@ -6,9 +6,10 @@ import Schedule from './schedule/schedule';
 import Landing from './landing/landing';
 import Presentation from './speaker/presentation';
 
-ReactDOM.render((
-    <>
+ReactDOM.render(
+  <>
     <CssBaseline />
-    <Presentation />
-    </>
-    ), document.getElementById('root'));
+    <Schedule />
+  </>,
+  document.getElementById('root')
+);
