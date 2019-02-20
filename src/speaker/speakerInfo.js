@@ -3,45 +3,37 @@ import { Card, CardContent, Avatar, Typography } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 
 import Me from '../images/me.jpg';
+
 const styles = {
-    card: {
-        width: '90%',
-        display: 'flex',
-    },
-    avatar: {
-        margin: 10,
-        width: 60,
-        height: 60,
-    },
-    info: {
-        display: 'flex',
-        
-    },
-    content: {
-        flex: '1 0 auto',
-    },
-    rightText: {
-        flex: '0 0 auto',
-    },
+  card: {
+    display: 'flex',
+    margin: '7px 0px'
+  },
+  avatar: {
+    margin: 10
+  },
+
+  content: {
+    display: 'flex',
+    alignItems: 'center',
+    width: '100%',
+    padding: 0,
+    '&:last-child': {
+      paddingBottom: 0
+    }
+  }
 };
 
 function SpeakerCard(props) {
-    const { classes } = props;
-    return(
-        <Card className={classes.card}>
-            <div className={classes.info}>
-                <CardContent className={classes.content}>
-                    <Avatar src={Me} className={classes.avatar}/>
-                </CardContent>
-                <div className={classes.rightText}>
-                <Typography component="h5" variant="h5">
-                        Fanny Chan
-                    </Typography>
-                </div>
-            </div>
-        </Card>
-    )
+  const { classes } = props;
+  return (
+    <Card className={classes.card} elevation={1}>
+      <CardContent className={classes.content}>
+        <Avatar src={Me} className={classes.avatar} />
+        <Typography variant="subtitle1">Fanny Chan</Typography>
+      </CardContent>
+    </Card>
+  );
 }
-
 
 export default withStyles(styles)(SpeakerCard);
