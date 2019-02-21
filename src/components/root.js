@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Presentation from '../speaker/presentation';
-import Schedule from '../schedule/schedule';
+import Presentation from '../Presentation/presentation';
+import Schedule from '../Schedule/schedule';
 
 function Root() {
   return (

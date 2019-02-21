@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core';
 import Divider from '@material-ui/core/Divider';
-
+import Button from '@material-ui/core/Button';
 import TimeIcon from '@material-ui/icons/AccessTime';
 import RoomIcon from '@material-ui/icons/Place';
 import SubjectIcon from '@material-ui/icons/Subject';
@@ -29,6 +29,13 @@ const styles = {
   abstract: {
     marginTop: 25,
     marginBottom: 25
+  },
+  button: {
+    width: '100%',
+    backgroundColor: '#F8F8F8',
+    color: '#336B87',
+    boxShadow: 'none',
+    padding: '10px 0'
   }
 };
 
@@ -75,7 +82,6 @@ class PresentationInfo extends Component {
               className={classes.typography}
               component="h6"
               variant="headline"
-              gutterBottom
             >
               {title}
             </Typography>
@@ -94,6 +100,10 @@ class PresentationInfo extends Component {
 
           <Speaker className={classes.abstract} speakers={speakers} />
           <Speaker speakers={speakers} />
+
+          <Button variant="contained" className={classes.button}>
+            Lägg till som favorit
+          </Button>
         </div>
       </div>
     );
