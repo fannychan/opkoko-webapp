@@ -29,11 +29,7 @@ function ScheduleItem(props) {
         secondary={
           <React.Fragment>
             <Typography color="textPrimary">{speaker}</Typography>
-            <Typography
-              className={classes.details}
-              variant="caption"
-              gutterBottom
-            >
+            <Typography className={classes.details} variant="caption">
               Rum: Salongen Tid: 9.30 - 10.00
             </Typography>
           </React.Fragment>
@@ -49,7 +45,7 @@ function ScheduleAvatar(props) {
     return <FikaIcon />;
   }
 
-  if (eventType === 'flash') {
+  if (eventType === 15) {
     return <FlashIcon />;
   }
 

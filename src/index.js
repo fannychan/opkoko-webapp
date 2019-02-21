@@ -9,7 +9,7 @@ import Presentation from './speaker/presentation';
 ReactDOM.render(
   <>
     <CssBaseline />
-    <Presentation />
+    <Schedule />
   </>,
   document.getElementById('root')
 );
