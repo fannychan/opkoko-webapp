@@ -3,7 +3,6 @@ import List from '@material-ui/core/List';
 import { withStyles } from '@material-ui/core/styles';
 import axios from 'axios';
 import BottomNavigationBar from '../components/navigation';
-
 import ScheduleItem from './components/scheduleItem';
 
 const styles = () => ({

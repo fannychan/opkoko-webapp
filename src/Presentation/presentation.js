@@ -8,7 +8,7 @@ import RoomIcon from '@material-ui/icons/Place';
 import SubjectIcon from '@material-ui/icons/Subject';
 import axios from 'axios';
 import IconRow from './iconRow';
-import Speaker from './speakerInfo';
+import Speaker from './SpeakerCard';
 
 const styles = {
   root: {
