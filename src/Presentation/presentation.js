@@ -41,12 +41,13 @@ const styles = {
 
 class PresentationInfo extends Component {
   constructor(props) {
+    console.log(props);
     super(props);
     this.state = {
       abstract: '',
       title: '',
       targetGroup: '',
-      id: '',
+      id: props.match.params.id,
       favorites: [],
       speakers: []
     };
@@ -55,15 +56,14 @@ class PresentationInfo extends Component {
 
   componentDidMount() {
     localStorage.getItem('favorites');
-
+    const { id } = this.state;
     axios
-      .get(`/presentation/5c38ee2cb0435b3b6eda8de2`, {
+      .get(`/presentation/${id}`, {
         headers: {
           authorization: 'Basic d2ViOnN1cGVyc2VjcmV0'
         }
       })
       .then(res => {
-        console.log(res);
         this.setState({
           abstract: res.data.abstract,
           title: res.data.title,

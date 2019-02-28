@@ -7,7 +7,7 @@ function Root() {
   return (
     <Switch>
       <Route exact path="/" component={Schedule} />
-      <Route path="/presentation" component={Presentation} />
+      <Route path="/presentation/:id" component={Presentation} />
     </Switch>
   );
 }

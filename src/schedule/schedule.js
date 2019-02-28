@@ -46,6 +46,7 @@ class Schedule extends Component {
           {presentations.map(presentation => (
             <ScheduleItem
               title={presentation.title}
+              id={presentation._id}
               speaker="Fanny Chan"
               eventType={presentation.duration}
             />

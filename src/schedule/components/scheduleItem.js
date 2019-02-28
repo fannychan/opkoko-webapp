@@ -22,9 +22,9 @@ const styles = () => ({
 });
 
 function ScheduleItem(props) {
-  const { classes, title, eventType, speaker } = props;
+  const { classes, title, eventType, speaker, id } = props;
   return (
-    <Link className={classes.link} to="/presentation">
+    <Link className={classes.link} to={`/presentation/${id}`}>
       <ListItem alignItems="flex-start">
         <Avatar>
           <ScheduleAvatar eventType={eventType} />
