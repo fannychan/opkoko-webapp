@@ -46,11 +46,16 @@ class PresentationInfo extends Component {
       abstract: '',
       title: '',
       targetGroup: '',
+      id: '',
+      favorites: [],
       speakers: []
     };
+    this.addToFavorites = this.addToFavorites.bind(this);
   }
 
   componentDidMount() {
+    localStorage.getItem('favorites');
+
     axios
       .get(`/presentation/5c38ee2cb0435b3b6eda8de2`, {
         headers: {
@@ -63,6 +68,7 @@ class PresentationInfo extends Component {
           abstract: res.data.abstract,
           title: res.data.title,
           targetGroup: res.data.targetGroup,
+          id: res.data._id,
           speakers: res.data.speakers
         });
       })
@@ -70,6 +76,13 @@ class PresentationInfo extends Component {
         console.log(error);
       });
   }
+
+  addToFavorites = () => {
+    const { id, favorites } = this.state;
+    const updated = [...favorites];
+    updated.push(id);
+    localStorage.setItem('favorites', JSON.stringify(updated));
+  };
 
   render() {
     const { classes } = this.props;
@@ -101,7 +114,11 @@ class PresentationInfo extends Component {
           <Speaker className={classes.abstract} speakers={speakers} />
           <Speaker speakers={speakers} />
 
-          <Button variant="contained" className={classes.button}>
+          <Button
+            variant="contained"
+            onClick={this.addToFavorites}
+            className={classes.button}
+          >
             Lägg till som favorit
           </Button>
         </div>
