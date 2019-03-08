@@ -6,7 +6,6 @@ import { BottomNavigationAction } from '@material-ui/core';
 import ScheduleIcon from '@material-ui/icons/Schedule';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import InformationIcon from '@material-ui/icons/Info';
-import Main from '../Main/Schedule/schedule';
 
 const styles = {
   stayAtBottom: {
@@ -14,6 +13,12 @@ const styles = {
     position: 'fixed',
     bottom: 0,
     borderTop: '1px solid #F8F8F8'
+  },
+  wrapper: {
+    color: 'yellow'
+  },
+  selected: {
+    color: '#a70000'
   }
 };
 
@@ -37,6 +42,9 @@ class NavigationBar extends Component {
       >
         <BottomNavigationAction
           component={Link}
+          classes={{
+            selected: classes.selected
+          }}
           to="/schedule"
           label="Schema"
           value="schedule"
@@ -45,12 +53,20 @@ class NavigationBar extends Component {
 
         <BottomNavigationAction
           component={Link}
+          classes={{
+            selected: classes.selected
+          }}
           to="/favorites"
           label="Favoriter"
           value="favorites"
           icon={<FavoriteIcon />}
         />
         <BottomNavigationAction
+          component={Link}
+          classes={{
+            selected: classes.selected
+          }}
+          to="/information"
           label="Information"
           value="information"
           icon={<InformationIcon />}

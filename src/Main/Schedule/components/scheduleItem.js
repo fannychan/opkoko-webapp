@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import ListItem from '@material-ui/core/ListItem';
 import Avatar from '@material-ui/core/Avatar';
 import ListItemText from '@material-ui/core/ListItemText';
 import FlashIcon from '@material-ui/icons/FlashOn';
-import ListSubheader from '@material-ui/core/ListSubheader';
 import WorkshopIcon from '@material-ui/icons/Build';
 import LunchIcon from '@material-ui/icons/Restaurant';
 import GroupIcon from '@material-ui/icons/Group';

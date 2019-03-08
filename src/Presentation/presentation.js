@@ -22,7 +22,6 @@ const styles = {
   typography: {
     color: '#2E2E2E'
   },
-
   wrapper: {
     padding: '10px 20px'
   },
