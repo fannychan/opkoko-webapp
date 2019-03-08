@@ -44,6 +44,7 @@ class PresentationInfo extends Component {
     console.log(props);
     super(props);
     this.state = {
+      buttonText: 'Lägg till som favorit',
       abstract: '',
       title: '',
       targetGroup: '',
@@ -52,6 +53,7 @@ class PresentationInfo extends Component {
       speakers: []
     };
     this.addToFavorites = this.addToFavorites.bind(this);
+    this.updateFavoriteButton = this.updateFavoriteButton.bind(this);
   }
 
   componentDidMount() {
@@ -78,15 +80,24 @@ class PresentationInfo extends Component {
   }
 
   addToFavorites = () => {
+    console.log(this.state.id);
+    console.log('Added?');
     const { id, favorites } = this.state;
     const updated = [...favorites];
     updated.push(id);
     localStorage.setItem('favorites', JSON.stringify(updated));
+    this.updateFavoriteButton();
+  };
+
+  updateFavoriteButton = () => {
+    this.setState({
+      buttonText: 'Ta bort som favorit'
+    });
   };
 
   render() {
     const { classes } = this.props;
-    const { title, abstract, targetGroup, speakers } = this.state;
+    const { title, abstract, targetGroup, speakers, buttonText } = this.state;
     return (
       <div className={classes.root}>
         <div className={classes.hero}>
@@ -119,7 +130,7 @@ class PresentationInfo extends Component {
             onClick={this.addToFavorites}
             className={classes.button}
           >
-            Lägg till som favorit
+            {buttonText}
           </Button>
         </div>
       </div>

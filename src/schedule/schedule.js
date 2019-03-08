@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import List from '@material-ui/core/List';
 import { withStyles } from '@material-ui/core/styles';
 import axios from 'axios';
-import BottomNavigationBar from '../Components/navigation';
 import ScheduleItem from './components/scheduleItem';
 
 const styles = () => ({
@@ -30,6 +29,7 @@ class Schedule extends Component {
         this.setState({
           presentations: res.data
         });
+        console.log(res.data);
       })
       .catch(error => {
         console.log(error);
@@ -45,6 +45,7 @@ class Schedule extends Component {
         <List className={classes.list}>
           {presentations.map(presentation => (
             <ScheduleItem
+              key={presentation._id}
               title={presentation.title}
               id={presentation._id}
               speaker="Fanny Chan"
@@ -52,7 +53,6 @@ class Schedule extends Component {
             />
           ))}
         </List>
-        <BottomNavigationBar />
       </div>
     );
   }
