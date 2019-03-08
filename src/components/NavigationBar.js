@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import { withStyles } from '@material-ui/core/styles';
 import { BottomNavigationAction } from '@material-ui/core';
 import ScheduleIcon from '@material-ui/icons/Schedule';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import InformationIcon from '@material-ui/icons/Info';
+import Main from '../Main/Schedule/schedule';
 
 const styles = {
   stayAtBottom: {
@@ -34,11 +36,16 @@ class NavigationBar extends Component {
         className={classes.stayAtBottom}
       >
         <BottomNavigationAction
+          component={Link}
+          to="/schedule"
           label="Schema"
           value="schedule"
           icon={<ScheduleIcon />}
         />
+
         <BottomNavigationAction
+          component={Link}
+          to="/favorites"
           label="Favoriter"
           value="favorites"
           icon={<FavoriteIcon />}

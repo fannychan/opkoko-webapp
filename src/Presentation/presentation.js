@@ -32,7 +32,6 @@ const styles = {
   },
   button: {
     width: '100%',
-    backgroundColor: '#F8F8F8',
     color: '#336B87',
     boxShadow: 'none',
     padding: '10px 0'
@@ -41,14 +40,15 @@ const styles = {
 
 class PresentationInfo extends Component {
   constructor(props) {
-    console.log(props);
     super(props);
     this.state = {
       buttonText: 'Lägg till som favorit',
+      buttonBackground: '#F8F8F8',
       abstract: '',
       title: '',
       targetGroup: '',
       id: props.match.params.id,
+      presentationObject: '',
       favorites: [],
       speakers: []
     };
@@ -71,7 +71,8 @@ class PresentationInfo extends Component {
           title: res.data.title,
           targetGroup: res.data.targetGroup,
           id: res.data._id,
-          speakers: res.data.speakers
+          speakers: res.data.speakers,
+          presentationObject: res.data
         });
       })
       .catch(function(error) {
@@ -80,33 +81,35 @@ class PresentationInfo extends Component {
   }
 
   addToFavorites = () => {
-    console.log(this.state.id);
-    console.log('Added?');
-    const { id, favorites } = this.state;
+    const { presentationObject, favorites } = this.state;
     const updated = [...favorites];
-    updated.push(id);
+    updated.push(presentationObject);
     localStorage.setItem('favorites', JSON.stringify(updated));
     this.updateFavoriteButton();
   };
 
   updateFavoriteButton = () => {
     this.setState({
-      buttonText: 'Ta bort som favorit'
+      buttonText: 'Ta bort från favoriter',
+      buttonBackground: '#ffbaba'
     });
   };
 
   render() {
     const { classes } = this.props;
-    const { title, abstract, targetGroup, speakers, buttonText } = this.state;
+    const {
+      title,
+      abstract,
+      targetGroup,
+      speakers,
+      buttonText,
+      buttonBackground
+    } = this.state;
     return (
       <div className={classes.root}>
         <div className={classes.hero}>
           <div>
-            <Typography
-              className={classes.typography}
-              component="h6"
-              variant="headline"
-            >
+            <Typography className={classes.typography} variant="title">
               {title}
             </Typography>
           </div>
@@ -129,6 +132,7 @@ class PresentationInfo extends Component {
             variant="contained"
             onClick={this.addToFavorites}
             className={classes.button}
+            style={{ backgroundColor: buttonBackground }}
           >
             {buttonText}
           </Button>
